@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>product</title>
+    <script src="../js/productList.js"></script>
+    <script src="../js/logoutAndDelete.js"></script>
+    
+    <script>
+        var cookieArr = document.cookie.split(";");
+        var flag = false;
+        for(var i=0; i < cookieArr.length; i++)
+        {
+            var cookiePair = cookieArr[i].split("=");
+
+            if("customerRoll" == cookiePair[0].trim())
+            {
+                flag = true;
+                if(cookiePair[1] == "Customer" || cookiePair[1] == null)
+                {
+                    location.href = "error.html";
+                }
+            }
+        }
+        if(flag == false)
+        {
+            location.href = "error.html";
+        }
+
+    </script>
+</head>
+<body onload="getListOfProducts()" class="bg flex col h100 text-color">
+
+    
+    
+    <div class="m10 p10">
+       
+        <button class="button" onclick="location.href='addNewItem.html'">Add</button>
+        <button class="button" onclick="location.href='profileUpdate.html'">Profile</button>
+        <button class="button" onclick="logout()">logout</button>
+    </div>
+    <div id="listProduct" class="box p100">
+
+        <script id="productTemplet" type="text/x-handlebars-template">
+            <table class="p100 inset scroll">
+                <thead class="thead top-shadow"><th class="border-right left-border">Product Name</th><th class="border-right">Quantity</th><th class="border-right">Amount per Item</th><th class="right-border" colspan="2">Edit/Remove</th></thead>
+                <tbody>
+                    {{#each productList}}
+                    <tr><td>{{productName}}</td><td>{{productQuantity}}</td><td>{{productAmount}}</td>
+                        <td><button class="button" onclick="location.href = 'edit.html?productId={{productId}}'">Edit</button></td>
+                        <td><button class="button" onclick="deleteFunction(this,'//localhost:8080/SuperMarketApplication/product/')" value = {{productId}}>Remove</button></td></tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </script>
+
+    
+    </div>
+
+
+    <script src="../js/handlebars-v4.7.7.js"></script>
+</body>
+</html>

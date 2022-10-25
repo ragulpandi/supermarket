@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <script src="../js/addToCartLogic.js"></script>
+    <script src="../js/productList.js"></script>
+   
+    <script>
+        var cookieArr = document.cookie.split(";");
+        var flag = false;
+        for(var i=0; i < cookieArr.length; i++)
+        {
+            var cookiePair = cookieArr[i].split("=");
+
+            if("customerRoll" == cookiePair[0].trim())
+            {
+                flag = true;
+                if(cookiePair[1] == "admin" || cookiePair[1] == null)
+                {
+                    location.href = "error.html";
+                }
+            }
+        }
+        if(flag == false)
+        {
+            location.href = "error.html";
+        }
+        
+    </script>
+ 
+</head>
+<body onload="getListOfProducts()">
+    
+    <div id="listProduct">
+        <script id="productTemplet" type="text/x-handlebars-template">
+            <table>
+                <thead><th>Product Name</th><th>Quantity</th><th>Amount per Item</th><th>Quantity</th><th>Add</th></thead>
+                <tbody>
+                    {{#each productList}}
+                    <tr><td>{{productName}}</td><td>{{productQuantity}}</td><td>{{productAmount}}</td>
+                        <td><input id="orderQuantity" type="number" placeholder="Enter Quantity" value=""></td>
+                        <!-- <td><button onclick="location.href = 'edit.html?productId={{productId}}'">Edit</button></td>
+                        <td><button onclick="deleteFunction(this)" value = {{productId}}>Remove</button></td></tr> -->
+
+                        <td><button onclick="addToCartFunction(this)" value = {{productId}}>Add to Cart</button></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </script>
+
+    </div>
+
+    <script src="../js/handlebars-v4.7.7.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+
+input {
+    outline: none;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h100 {
+    height: 100vh;
+}
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.bg {
+    background-color: #3b3a3a;
+    /* background: url("data:image/jpeg;base64,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");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right; */
+}
+
+.p100 {
+    padding: 100px !important;
+}
+
+.p10 {
+    padding: 10px !important;
+}
+
+.m10 {
+    margin: 10px !important;
+}
+
+.box {
+    border-radius: 30px;
+background: linear-gradient(145deg, #3f3e3e, #353434);
+box-shadow:  7px 7px 23px #282727,
+             -7px -7px 23px #4e4d4d;
+}
+
+/* .box {
+    backdrop-filter: blur(6px) saturate(175%);
+    -webkit-backdrop-filter: blur(6px) saturate(175%);
+    background-color: rgba(255, 255, 255, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+} */
+
+.button {
+    backdrop-filter: blur(6px) saturate(175%);
+    -webkit-backdrop-filter: blur(6px) saturate(175%);
+    background-color: rgba(255, 255, 255, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    outline-width: 0;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+}
+
+.text-color {
+    color: #eee;
+}
+
+.f1 {
+    flex: 1;
+}
+
+.wfull {
+    width: 100%;
+}
+
+.abs {
+    position: absolute;
+}
+
+.rel {
+    position: relative;
+}
+
+/* .button {
+    border-radius: 21px;
+background: #3b3a3a;
+box-shadow:  5px 5px 21px #202020,
+             -5px -5px 21px #565454;
+    outline-width: 0;
+    border: none;
+    cursor: pointer;
+    color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+}
+
+.button:hover {
+    border-radius: 21px;
+background: #3b3a3a;
+box-shadow: inset 5px 5px 21px #202020,
+            inset -5px -5px 21px #565454;
+} */
+
+.bot-50 {
+    margin-bottom:70px;
+}
+
+.center-form-button {
+    top: 10px;
+    left: 75px;
+}
+
+a {
+    color : rgb(101 243 222);
+    text-decoration: none;
+}
+
+.br8 {
+    border-radius: 8px;
+}
+
+.thead tr th{
+    padding: 20px;
+}
+
+.thead {
+    position: sticky;
+    top: -100px;
+    background: #3b3a3a;
+}
+.border-right {
+    border-right: 2px solid #eee;
+    text-align: center;
+}
+
+.inset {
+    border-radius: 21px;
+background: #3b3a3a;
+box-shadow: inset 5px 5px 21px #202020,
+            inset -5px -5px 21px #565454;
+}
+
+.pd100 {
+    padding-bottom: 100px;
+}
+
+.scroll {
+    overflow:scroll;
+   height:35vh;
+   display:block;
+}
+
+.listProduct {
+    height: 500px;
+}
+
+.sb {
+    justify-content: space-between;
+}
+
+.left-border {
+    border-radius: 0px 0px 0px 10px;
+}
+
+.right-border {
+    border-radius: 0px 0px 10px 0px;
+}
+
+.top-shadow {
+    background: linear-gradient(145deg, #3f3e3e, #353434);
+    box-shadow: 9px 9px 18px #333232;
+}
+

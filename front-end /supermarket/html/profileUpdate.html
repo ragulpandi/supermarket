@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body onload="getCustomerById()" class="bg flex row h100 text-color">
+    <form id="profileUpdateForm" class="flex col">
+        <table id="profile" class="box p100">
+            <script id="profileDetailByIdTemplet" type="text/x-handlebars-template">
+                <tr>
+                <td class="m10 p10"><label for="customerName">Customer Name: </label></td>
+                <td class="m10 p10"><input class="p10 w10 br8" type="text" name="customerName" placeholder="Enter customer Name" value={{customerName}} required></td>
+                </tr>
+    
+                <tr>
+                <td class="m10 p10"><label for="customerEmail">Email: </label></td>
+                <td class="m10 p10"><input class="p10 w10 br8" type="email" name="customerEmail" placeholder="Enter Email" value={{customerEmail}} required></td>
+                </tr>
+    
+                <tr>
+                    <td class="m10 p10"><label for="customerPhn">Mobile No.: </label></td>
+                    <td class="m10 p10"><input class="p10 w10 br8" type="text" name="customerPhn" placeholder="Enter mobile number" value={{customerPhn}} required></td>
+                </tr>
+    
+                <tr>
+                    <td class="m10 p10"><label for="userName">userName: </label></td>
+                    <td class="m10 p10"><input class="p10 w10 br8" type="text" name="userName" placeholder="Enter userName" value={{userName}} required readonly></td>
+                </tr>
+
+                <tr>
+                    <td class="m10 p10"><label for="userPassword">Password: </label></td>
+                    <td class="m10 p10"><input class="p10 w10 br8" type="password" name="userPassword" placeholder="Enter password" value={{userPassword}} required></td>
+                </tr>
+
+                <tr>
+                    <td class="m10 p10"><input class="p10 w10 br8 button" type="submit" value="update"></td> 
+                    <!-- <td><button><a href="adminView.html">Cancle</a></button></td> -->
+                </tr>
+            </script>
+                
+            </table>  
+                
+      </form>
+
+      <script src="../js/handlebars-v4.7.7.js"></script>
+
+      <script src="../js/profileUpdateLogic.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg flex row h100 text-color">
+
+    <div class="flex col box p100">
+        <H1>Login Form</H1>
+
+        <form id="loginForm">
+            <table class="bot-50">
+                <tr>
+                <td><label class="p10 m10" for="userName">User Name: </label></td>
+                <td><input class="p10 m10 br8" type="text" name="userName" placeholder="Enter UserName" required></td>
+                </tr>
+                <tr>
+                <td><label class="p10 m10" for="userPassword">Password: </label></td>
+                <td><input class="p10 m10 br8" type="password" name="userPassword" placeholder="Enter Password" required></td>
+                </tr>
+    
+                <tr class="rel"><td colspan="2" class=" wfull"><button  class="button abs center-form-button">submit</button></td></tr>
+                
+            </table>
+        </form>
+
+        <span>Click here to <a href="signup.html">Create new account</a></span>
+    
+    </div>
+
+        
+    
+    <script src = "../js/loginLogic.js"></script>
+</body>
+</html>
+
+
+<!-- name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+<body class="bg flex row h100 text-color">
+    <form id="signUpForm" class="box p100">
+        <table>
+            <tr>
+            <td class="m10 p10"><label for="customerName">Name: </label></td>
+            <td class="m10 p10"><input class="p10 w10 br8" type="text" name="customerName" placeholder="Enter Name" required></td>
+            </tr>
+            <tr>
+            <td class="m10 p10"><label for="customerEmail">Email: </label></td>
+            <td class="m10 p10"><input class="p10 w10 br8" type="email" name="customerEmail" placeholder="Enter email" required></td>
+            </tr>
+
+            <tr>
+                <td class="m10 p10"><label for="customerPhn">Mobile No.: </label></td>
+                <td class="m10 p10"><input class="p10 w10 br8" type="number" name="customerPhn" placeholder="Enter mobile number" required></td>
+            </tr>
+
+            <tr>
+                <td class="m10 p10"><label for="userName">User Name: </label></td>
+                <td class="m10 p10"><input class="p10 w10 br8" type="text" name="userName" placeholder="Enter UserName" required></td>
+            </tr>
+
+            <tr>
+                <td class="m10 p10"><label for="userPassword">Password: </label></td>
+                <td class="m10 p10"><input class="p10 w10 br8" type="password" name="userPassword" placeholder="Enter Password" required></td>
+            </tr>
+
+            <tr><td class="m10 p10"><input class="p10 w10 br8 button" type="submit" value="sign up"></td></tr>
+            
+        </table>
+        if account already exsist <a href="login.html">login</a>
+    </form>
+
+    
+
+
+    <script src="../js/signUpLogic.js"></script>
+</body>
+</html>

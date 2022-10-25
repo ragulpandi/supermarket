@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Welcome</title>
+    <script src="../js/addToCartLogic.js"></script>
+    <script src="../js/productList.js"></script>
+    <script src="../js/logoutAndDelete.js"></script>
+    <script>
+        var cookieArr = document.cookie.split(";");
+        var flag = false;
+        for(var i=0; i < cookieArr.length; i++)
+        {
+            var cookiePair = cookieArr[i].split("=");
+
+            if("customerRoll" == cookiePair[0].trim())
+            {
+                flag = true;
+                if(cookiePair[1] == "admin" || cookiePair[1] == null)
+                {
+                    location.href = "error.html";
+                }
+            }
+        }
+        if(flag == false)
+        {
+            location.href = "error.html";
+        }
+
+    </script>
+
+
+</head>
+<body onload="getListOfProducts()" class="bg flex row h100 text-color col">
+    <div class="box p100 listProduct">
+        <div class="flex pd100">
+         <button class="button" onclick="logout()">logout</button>
+    <!-- <button onclick="location.href = 'productListCustomer.html'">view product</button> -->
+    <button class="button" onclick="location.href = 'cart.html'" >cart</button>
+    <button class="button" onclick="location.href='profileUpdate.html'">Profile</button>
+    </div>
+   
+    
+    <div id="listProduct">
+        <script id="productTemplet" type="text/x-handlebars-template">
+            <table class="p100 inset scroll">
+                <thead class="thead top-shadow"><th class="border-right left-border">Product Name</th><th class="border-right">Quantity</th><th class="border-right">Amount per Item</th><th class="border-right" >Quantity</th><th class="right-border">Add</th></thead>
+                <tbody >
+                    {{#each productList}}
+                    <tr><td class="border-right">{{productName}}</td><td class="border-right">{{productQuantity}}</td><td class="border-right">{{productAmount}}</td>
+                        <td><input class="p10 m10 br8" id={{productId}} type="number" placeholder="Enter Quantity" value=""></td>
+                        <!-- <td><button onclick="location.href = 'edit.html?productId={{productId}}'">Edit</button></td>
+                        <td><button onclick="deleteFunction(this)" value = {{productId}}>Remove</button></td></tr> -->
+
+                        <td><button class="button" onclick="addToCartFunction(this)" value = {{productId}}>Add to Cart</button></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </script>
+
+    </div>
+    </div>
+    
+
+
+    <!-- <script src="../js/cartList.js"></script> -->
+    <script src="../js/handlebars-v4.7.7.js"></script>
+    
+</body>
+</html>

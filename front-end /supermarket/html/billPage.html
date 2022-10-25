@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+    <script src="../js/cartList.js"></script>
+    <script>
+        var cookieArr = document.cookie.split(";");
+        var flag = false;
+        for(var i=0; i < cookieArr.length; i++)
+        {
+            var cookiePair = cookieArr[i].split("=");
+
+            if("customerRoll" == cookiePair[0].trim())
+            {
+                flag = true;
+                if(cookiePair[1] == "admin" || cookiePair[1] == null)
+                {
+                    location.href = "error.html";
+                }
+            }
+        }
+        if(flag == false)
+        {
+            location.href = "error.html";
+        }
+    </script>
+</head>
+<body class="bg flex row h100 text-color col" onload="getCartList('//localhost:8080/SuperMarketApplication/cart/print/','billpage')">
+    <h1 class="flex row p100 m10 p10">Welcome &nbsp;<span id ="userName">hi</span></h1>
+    
+
+    <div id="listCart" class="flex p100 box">
+
+        <script id="cartTemplet" type="text/x-handlebars-template">
+            <table class="p100 inset scroll">
+                <thead class="thead top-shadow"><th class="border-right left-border">Product Name</th><th class="border-right">Quantity</th><th class="right-border">Amount</th></thead>
+                <tbody>
+                    {{#each billList}}
+                    <tr><td class="border-right">{{productName}}</td><td class="border-right">{{productQuantity}}</td><td>{{productAmount}}</td></tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </script>
+    </div>
+
+    <br><br>
+    <div class="flex row">Total: Rs. <span id="total"></span></div> 
+
+    <script src="../js/handlebars-v4.7.7.js"></script>
+    <script src="../js/cartList.js"></script>
+</body>
+</html>

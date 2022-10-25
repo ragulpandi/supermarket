@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Cart</title>
+    <script src="../js/logoutAndDelete.js"></script>
+    <script src="../js/cartList.js"></script>
+    <script>
+        var cookieArr = document.cookie.split(";");
+        var flag = false;
+        for(var i=0; i < cookieArr.length; i++)
+        {
+            var cookiePair = cookieArr[i].split("=");
+
+            if("customerRoll" == cookiePair[0].trim())
+            {
+                flag = true;
+                if(cookiePair[1] == "admin" || cookiePair[1] == null)
+                {
+                    location.href = "error.html";
+                }
+            }
+        }
+        if(flag == false)
+        {
+            location.href = "error.html";
+        }
+
+
+    </script>
+
+</head>
+<body class="bg flex row h100 text-color col" onload="getCartList('//localhost:8080/SuperMarketApplication/cart/','')">
+
+    <!-- <table>
+        <th><td>Product Name</td> <td>Quantity</td> <td>Amount</td> <td><button onclick="">Remove</button></td></th>
+    </table> -->
+    <button class="p10 p100 m10 button" onclick="location.href = 'customerView.html'" >View Products</button>
+
+    <div id="listCart"  class="flex p100 box">
+
+        <script id="cartTemplet" type="text/x-handlebars-template">
+            <table class="p100 inset scroll">
+                <thead class="thead top-shadow"><th class="border-right left-border">Product Name</th><th class="border-right">Quantity</th><th class="border-right">Amount</th><th class="right-border">Remove</th></thead>
+                <tbody>
+                    {{#each cartList}}
+                    <tr><td class="border-right">{{productName}}</td><td class="border-right">{{productQuantity}}</td><td class="border-right">{{productAmount}}</td>
+                        <td ><button class="button" onclick="deleteFunction(this,'//localhost:8080/SuperMarketApplication/cart/remove/')" value = {{productId}}>Remove</button></td></tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </script>
+    </div>
+
+    <br><br>
+    <button class="button" onclick="location.href = 'billPage.html'">Print Bill</button>
+
+    <script src="../js/handlebars-v4.7.7.js"></script>
+</body>
+</html>
